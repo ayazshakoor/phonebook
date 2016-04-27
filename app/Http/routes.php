@@ -12,7 +12,7 @@
 */
 Route::get('/','ContactsController@index');
 Route::get('contact/create','ContactsController@create');
-Route::post('create','ContactsController@store');
+Route::post('contact/create','ContactsController@store');
 Route::get('contact/update/{id}','ContactsController@create');
 Route::get('contact/delete/{id}','ContactsController@delete');
 /*Route::get('/', function () {
@@ -31,5 +31,12 @@ Route::get('contact/delete/{id}','ContactsController@delete');
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    // Authentication routes...
+    Route::get('auth/login', 'Auth\AuthController@getLogin');
+    Route::post('auth/login', 'Auth\AuthController@postLogin');
+    Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+    Route::get('auth/register', 'Auth\AuthController@getRegister');
+    Route::post('auth/register', 'Auth\AuthController@postRegister');
 });

@@ -11,6 +11,9 @@ class Contacts extends Model
     'first_name',
     'last_name',
     'phone',
-    'details'
+    'city',
+    'state',
+    'zip',
+    'details',
     ];
 }

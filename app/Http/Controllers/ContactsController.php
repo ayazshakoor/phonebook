@@ -16,7 +16,7 @@ class ContactsController extends Controller
     	$url = url('/create');
     	$contact = array();
     	if($id){
-    		$contact = Contacts::find(intval($id))->toArray();
+    		$contact = Contacts::find(intval($id));
     	}
     	return view('contacts.create',compact('contact','url'));
     }
@@ -27,7 +27,7 @@ class ContactsController extends Controller
     		->update($data);
     	}
     	else{
-    	Contacts::create($data);	
+    	Contacts::create($data);
     	}
     	return redirect(url('/'));
     }
